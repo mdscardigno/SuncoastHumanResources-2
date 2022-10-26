@@ -50,41 +50,41 @@ namespace SuncoastHumanResources
                 //MENU
                 //insert a blank line then prompt them and get their answer (force to upper case)
                 Console.WriteLine();
-                Console.WriteLine("1. Add an employee");
-                Console.Write("What do you want to do? (A)dd and employee or (Q)uit? ");
+                Console.Write("What do you want to do? (A)dd and employee (S)how all the employees (F)ind and employee or (Q)uit? ");
                 var choice = Console.ReadLine().ToUpper();
                 //quit or exit
                 if (choice == "Q")
                 {
                     keepShowingTheMenu = false;
                 }
-                //search for an employee
+
+                //show all employee
                 else if (choice == "S")
                 {
                     //loop through each employee
                     foreach (var employee in employees)
                     {
-                        Console.WriteLine($"{employee.Name} is in department {employee.Department} and makes {employee.Salary}.");
+                        Console.WriteLine("Show the employees");
+                        Console.WriteLine($"{employee.Name} is in department {employee.Department} and makes ${employee.Salary}.");
                     }
                 }
+                // else if (choice == "F") { }
                 //while the user has's quit yet
                 else
                 {
-                    var employee = new Employee();
+                    //create
                     //make the employee object
+                    var employee = new Employee();
+
                     //we set the properties of the employee object
                     employee.Name = PromptForString("What is your name?: ");
                     employee.Department = PromptForInteger("What is your department number?:");
                     employee.Salary = PromptForInteger("What is your salary in dollars?: ");
-                    Console.WriteLine($"Hello, {employee.Name}, you are in the department number {employee.Department} you make {employee.Salary} dollars per month.");
+                    Console.WriteLine($"Hello, {employee.Name}, you are in the department number {employee.Department} you make ${employee.Salary}.");
 
                     //we add the employee object to the list of employees
                     employees.Add(employee);
                 }//end of while loop
-
-
-
-
             }
 
 
