@@ -50,7 +50,8 @@ namespace SuncoastHumanResources
                 //MENU
                 //insert a blank line then prompt them and get their answer (force to upper case)
                 Console.WriteLine();
-                Console.Write("What do you want to do? (A)dd and employee (S)how all the employees (F)ind and employee or (Q)uit? ");
+                Console.Write("What do you want to do?\n (A)dd and employee\n (S)how all the employees\n (F)ind and employee\n or (Q)uit?\n ");
+
                 var choice = Console.ReadLine().ToUpper();
                 //quit or exit
                 if (choice == "Q")
@@ -58,7 +59,40 @@ namespace SuncoastHumanResources
                     keepShowingTheMenu = false;
                 }
 
+                //READ - OUT OF CREATE READ UPDATE DELETE
                 //show all employee
+                else if (choice == "F")
+                {
+                    // Console.WriteLine("Find an employee.");
+                    //create a variable to hold the employee we find foundEmployee
+                    Employee foundEmployee = null;//explicitly declare the variable
+                    //since we do not initialize the foundEmployee variable or set it equal to something, it is null
+                    //Prompt for the name of the employee
+                    var nameToFind = PromptForString("What is the name of the employee you want to find? ");
+                    //Loop through the list of employees to look for a match
+                    foreach (var employee in employees)
+                    {
+                        //if the name matches, set foundEmployee to that employee
+                        if (employee.Name == nameToFind)
+                        {
+                            foundEmployee = employee;
+                        }
+
+                    }
+                    //After the loop, foundEmployee will either be null or have a value referring to the matching name
+                    //If we found one, show the employee
+                    //If we find one, update foundEmployee 
+                    if (foundEmployee != null)
+                    {
+                        Console.WriteLine($"We found {foundEmployee.Name} in department {foundEmployee.Department} and makes ${foundEmployee.Salary}.");
+                    }
+                    //If we did not find one, show a message
+                    else
+                    {
+                        Console.WriteLine($"Sorry, we could not find {nameToFind}.");
+                    }
+                    //Show a message if null, otherwise show the details about the foundEmployee
+                }
                 else if (choice == "S")
                 {
                     //loop through each employee
@@ -68,11 +102,10 @@ namespace SuncoastHumanResources
                         Console.WriteLine($"{employee.Name} is in department {employee.Department} and makes ${employee.Salary}.");
                     }
                 }
-                // else if (choice == "F") { }
                 //while the user has's quit yet
                 else
                 {
-                    //create
+                    //CREATE - OUT OF CREATE READ UPDATE DELETE
                     //make the employee object
                     var employee = new Employee();
 
