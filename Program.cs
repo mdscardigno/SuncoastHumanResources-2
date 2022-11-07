@@ -51,7 +51,7 @@ namespace SuncoastHumanResources
                 //MENU
                 //insert a blank line then prompt them and get their answer (force to upper case)
                 Console.WriteLine();
-                Console.Write("What do you want to do?\n (A)dd and employee\n (S)how all the employees\n (F)ind and employee\n or (Q)uit?\n ");
+                Console.Write("What do you want to do?\n (A)dd and employee\n (S)how all the employees\n (F)ind and employee\n (D)elete or (Q)uit?\n ");
 
                 var choice = Console.ReadLine().ToUpper();
                 //quit or exit
@@ -60,6 +60,38 @@ namespace SuncoastHumanResources
                     keepShowingTheMenu = false;
                 }
 
+                else if (choice == "D")
+                {
+                    //small algorithm to delete an employee
+                    //seach the database for the employee
+                    //if found employee
+                    //show details
+                    //ask to confirm delete
+                    //if yes
+                    //delete
+                    //if no 
+                    //do nothing
+                    //if employee not found
+                    //show that employee does not exist.
+
+                    //prompt for the employee number
+                    var employeeName = PromptForString("What is the employee name you are looking for? ");
+                    //find the employee
+                    var employeeToDelete = employees.FirstOrDefault(employee => employee.Name == employeeName);
+                    //if we found the employee
+                    if (employeeToDelete != null)
+                    {
+                        //remove the employee
+                        employees.Remove(employeeToDelete);
+                        //tell the user we deleted the employee
+                        Console.WriteLine($"We deleted {employeeToDelete.Name} from the list.");
+                    }
+                    else
+                    {
+                        //tell the user we could not find the employee
+                        Console.WriteLine($"Sorry, we could not find {employeeName} in the list.");
+                    }
+                }
                 //READ - OUT OF CREATE READ UPDATE DELETE
                 //show all employee
                 else if (choice == "F")
