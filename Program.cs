@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SuncoastHumanResources
 {
@@ -64,21 +65,23 @@ namespace SuncoastHumanResources
                 else if (choice == "F")
                 {
                     // Console.WriteLine("Find an employee.");
+                    var nameToFind = PromptForString("What is the name of the employee you want to find? ");
                     //create a variable to hold the employee we find foundEmployee
-                    Employee foundEmployee = null;//explicitly declare the variable
+                    // Employee foundEmployee = null;//explicitly declare the variable
+                    Employee foundEmployee = employees.FirstOrDefault(employee => employee.Name == nameToFind);
                     //since we do not initialize the foundEmployee variable or set it equal to something, it is null
                     //Prompt for the name of the employee
-                    var nameToFind = PromptForString("What is the name of the employee you want to find? ");
+                    // 
                     //Loop through the list of employees to look for a match
-                    foreach (var employee in employees)
-                    {
-                        //if the name matches, set foundEmployee to that employee
-                        if (employee.Name == nameToFind)
-                        {
-                            foundEmployee = employee;
-                        }
+                    // foreach (var employee in employees)
+                    // {
+                    //     //if the name matches, set foundEmployee to that employee
+                    //     if (employee.Name == nameToFind)
+                    //     {
+                    //         foundEmployee = employee;
+                    //     }
 
-                    }
+                    // }
                     //After the loop, foundEmployee will either be null or have a value referring to the matching name
                     //If we found one, show the employee
                     //If we find one, update foundEmployee 
