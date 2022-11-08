@@ -73,7 +73,7 @@ namespace SuncoastHumanResources
                     {
                         //if found employee
                         //show details
-                        Console.WriteLine($"Name found: {employeeToDelete.Name}");
+                        Console.WriteLine($"Name found: {employeeToDelete.Name} in department {employeeToDelete.Department} with salary {employeeToDelete.Salary}");
                         //ask to confirm delete
                         Console.WriteLine($"Are you sure you want to delete {employeeToDelete.Name}?: (Y)es or (N)o");
                         //if no 
