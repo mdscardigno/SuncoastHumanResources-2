@@ -41,7 +41,8 @@ namespace SuncoastHumanResources
             DisplayGreeting();
 
             //list of employees
-            var employees = new List<Employee>();
+            // var employees = new List<Employee>();
+            var database = new EmployeeDB();
 
             //Should we show the menu?
             var keepShowingTheMenu = true;
@@ -67,7 +68,7 @@ namespace SuncoastHumanResources
                     //prompt for the employee name
                     var employeeName = PromptForString("What is the employee name you are looking for? ");
                     //find the employee
-                    var employeeToDelete = employees.FirstOrDefault(employee => employee.Name == employeeName);
+                    var employeeToDelete = database.FindOneEmployee(employeeName);
                     //if we did not find anybody
                     if (employeeToDelete == null)
                     {
@@ -94,7 +95,7 @@ namespace SuncoastHumanResources
                         else//this becomes a double negative and double negatives in languages are hard to keep track of
                         {
                             //remove the employee
-                            employees.Remove(employeeToDelete);
+                            database.DeleteEmployee(employeeName);
                             Console.WriteLine($"We deleted {employeeToDelete.Name} from the list of employees.");
                         }
                     }
@@ -108,7 +109,7 @@ namespace SuncoastHumanResources
                     var nameToFind = PromptForString("What is the name of the employee you want to find? ");
                     //create a variable to hold the employee we find foundEmployee
                     // Employee foundEmployee = null;//explicitly declare the variable
-                    Employee foundEmployee = employees.FirstOrDefault(employee => employee.Name == nameToFind);
+                    Employee foundEmployee = database.FindOneEmployee(nameToFind);
                     //since we do not initialize the foundEmployee variable or set it equal to something, it is null
                     //Prompt for the name of the employee
                     // 
@@ -139,10 +140,10 @@ namespace SuncoastHumanResources
                 else if (choice == "S")
                 {
                     //loop through each employee
-                    foreach (var employee in employees)
+                    foreach (var employee in database.GetAllEmployees())
                     {
-                        Console.WriteLine("Show the employees");
-                        Console.WriteLine($"{employee.Name} is in department {employee.Department} and makes ${employee.Salary}.");
+                        //show the details of each employee
+                        Console.WriteLine($"Name: {employee.Name} Department: {employee.Department} Salary: {employee.Salary}");
                     }
                 }
 
@@ -152,7 +153,7 @@ namespace SuncoastHumanResources
                     //prompt for the name of the employee
                     var nameToUpdate = PromptForString("What is the name of the employee you want to update? ");
                     //search the database for the employee
-                    Employee foundEmployee = employees.FirstOrDefault(employee => employee.Name == nameToUpdate);
+                    Employee foundEmployee = database.FindOneEmployee(nameToUpdate);
                     //if we find the employee
                     if (foundEmployee == null)
                     {
@@ -220,7 +221,7 @@ namespace SuncoastHumanResources
                         Console.WriteLine($"Hello, {employee.Name}, you are in the department number {employee.Department} you make ${employee.Salary}.");
 
                         //we add the employee object to the list of employees
-                        employees.Add(employee);
+                        database.AddEmployee(employee);
                     }
                 }
                 else
