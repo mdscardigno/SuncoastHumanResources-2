@@ -51,7 +51,7 @@ namespace SuncoastHumanResources
                 //MENU
                 //insert a blank line then prompt them and get their answer (force to upper case)
                 Console.WriteLine();
-                Console.Write("What do you want to do?\n (A)dd and employee\n (S)how all the employees\n (F)ind and employee\n (D)elete\n or (Q)uit?\n ");
+                Console.Write("What do you want to do?\n (A)dd and employee\n (S)how all the employees\n (F)ind and employee\n (D)elete\n (U)pdate\n or (Q)uit?\n ");
 
                 var choice = Console.ReadLine().ToUpper();
                 //quit or exit
@@ -98,8 +98,6 @@ namespace SuncoastHumanResources
                             Console.WriteLine($"We deleted {employeeToDelete.Name} from the list of employees.");
                         }
                     }
-
-
                 }
 
                 //READ - OUT OF CREATE READ UPDATE DELETE
@@ -147,9 +145,14 @@ namespace SuncoastHumanResources
                         Console.WriteLine($"{employee.Name} is in department {employee.Department} and makes ${employee.Salary}.");
                     }
                 }
+
+                else if (choice == "U")
+                {
+                    System.Console.WriteLine("Updating employee");
+                }
                 //while the user has's quit yet
                 else
-                if (choice == "A")
+                                if (choice == "A")
                 {
                     {
                         //CREATE - OUT OF CREATE READ UPDATE DELETE
