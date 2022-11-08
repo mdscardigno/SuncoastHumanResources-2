@@ -59,6 +59,7 @@ namespace SuncoastHumanResources
                 if (choice == "Q")
                 {
                     keepShowingTheMenu = false;
+                    System.Console.WriteLine("Thank you for using Suncoast Human Resources DB. Goodbye!");
                 }
 
                 else if (choice == "D")
@@ -176,7 +177,7 @@ namespace SuncoastHumanResources
                             //update the name
                             foundEmployee.Name = newName;
                             //show the new name
-                            Console.WriteLine($"The new name for {foundEmployee.Name} is {foundEmployee.Name}.");
+                            Console.WriteLine($"The new name is now: {foundEmployee.Name}.");
                         }
                         //--if department
                         else if (change == "D")
