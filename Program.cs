@@ -149,6 +149,60 @@ namespace SuncoastHumanResources
                 else if (choice == "U")
                 {
                     System.Console.WriteLine("Updating employee");
+                    //prompt for the name of the employee
+                    var nameToUpdate = PromptForString("What is the name of the employee you want to update? ");
+                    //search the database for the employee
+                    Employee foundEmployee = employees.FirstOrDefault(employee => employee.Name == nameToUpdate);
+                    //if we find the employee
+                    if (foundEmployee == null)
+                    {
+                        Console.WriteLine($"Sorry, no such employee with the name of {nameToUpdate}.");
+                    }
+                    else
+                    {
+                        //confirm that we found the employee
+                        Console.WriteLine($"We found {foundEmployee.Name} in department {foundEmployee.Department} and makes ${foundEmployee.Salary}.");
+                        //prompt user for what change they want to make?
+                        Console.WriteLine("What do you want to change?\n (N)ame\n (D)epartment\n (S)alary\n ");
+                        //get the user's choice of change to employee
+                        var change = Console.ReadLine().ToUpper();
+                        //--if name
+                        //----prompt for new name
+                        if (change == "N")
+                        {
+                            //prompt for new name
+                            var newName = PromptForString("What is the new name? ");
+                            //update the name
+                            foundEmployee.Name = newName;
+                            //show the new name
+                            Console.WriteLine($"The new name for {foundEmployee.Name} is {foundEmployee.Name}.");
+                        }
+                        //--if department
+                        else if (change == "D")
+                        {
+                            //prompt for new department
+                            var newDepartment = PromptForString("What is the new department? ");
+                            //update the department
+                            foundEmployee.Department = int.Parse(newDepartment);
+                            //show the new department
+                            Console.WriteLine($"The new department for {foundEmployee.Name} is {foundEmployee.Department}.");
+                        }
+                        //--if salary
+                        else if (change == "S")
+                        {
+                            //prompt for new salary
+                            var newSalary = PromptForInteger($"What is the new salary for {foundEmployee.Name}?: ");
+                            //update the salary
+                            foundEmployee.Salary = newSalary;
+                            //show the new salary
+                            Console.WriteLine($"The new salary for {foundEmployee.Name} is {foundEmployee.Salary}.");
+                        }
+                        else
+                        {//if we don't find the employee
+                         //----tell the user we could not find the employee
+                            Console.WriteLine("Sorry, that is not a valid choice.");
+                        }
+                    }
                 }
                 //while the user has's quit yet
                 else
