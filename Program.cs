@@ -95,8 +95,8 @@ namespace SuncoastHumanResources
                         {
                             //remove the employee
                             employees.Remove(employeeToDelete);
+                            Console.WriteLine($"We deleted {employeeToDelete.Name} from the list of employees.");
                         }
-                        Console.WriteLine($"We deleted {employeeToDelete.Name} from the list.");
                     }
 
 
