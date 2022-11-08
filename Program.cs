@@ -51,7 +51,7 @@ namespace SuncoastHumanResources
                 //MENU
                 //insert a blank line then prompt them and get their answer (force to upper case)
                 Console.WriteLine();
-                Console.Write("What do you want to do?\n (A)dd and employee\n (S)how all the employees\n (F)ind and employee\n (D)elete or (Q)uit?\n ");
+                Console.Write("What do you want to do?\n (A)dd and employee\n (S)how all the employees\n (F)ind and employee\n (D)elete\n or (Q)uit?\n ");
 
                 var choice = Console.ReadLine().ToUpper();
                 //quit or exit
@@ -149,21 +149,28 @@ namespace SuncoastHumanResources
                 }
                 //while the user has's quit yet
                 else
+                if (choice == "A")
                 {
-                    //CREATE - OUT OF CREATE READ UPDATE DELETE
-                    //make the employee object
-                    var employee = new Employee();
+                    {
+                        //CREATE - OUT OF CREATE READ UPDATE DELETE
+                        //make the employee object
+                        var employee = new Employee();
 
-                    //we set the properties of the employee object
-                    employee.Name = PromptForString("What is the name of the employee to enter?: ");
-                    employee.Department = PromptForInteger("What is your department number?:");
-                    employee.Salary = PromptForInteger("What is your salary in dollars?: ");
-                    Console.WriteLine($"Hello, {employee.Name}, you are in the department number {employee.Department} you make ${employee.Salary}.");
+                        //we set the properties of the employee object
+                        employee.Name = PromptForString("What is the name of the employee to enter?: ");
+                        employee.Department = PromptForInteger("What is your department number?:");
+                        employee.Salary = PromptForInteger("What is your salary in dollars?: ");
+                        Console.WriteLine($"Hello, {employee.Name}, you are in the department number {employee.Department} you make ${employee.Salary}.");
 
-                    //we add the employee object to the list of employees
-                    employees.Add(employee);
-                }//end of while loop
-            }
+                        //we add the employee object to the list of employees
+                        employees.Add(employee);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Sorry, that is not a valid input.");
+                }
+            }//end of while loop
 
 
 
