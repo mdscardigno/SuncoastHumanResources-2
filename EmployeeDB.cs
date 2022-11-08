@@ -28,7 +28,8 @@ namespace SuncoastHumanResources
         //READ
         public Employee FindOneEmployee(string nameToFind)
         {
-            Employee foundEmployee = Employees.FirstOrDefault(employee => employee.Name == nameToFind);
+            //In one place I declared how I find employees. 
+            Employee foundEmployee = Employees.FirstOrDefault(employee => employee.Name.Contains(nameToFind));
             return foundEmployee;
         }
 
