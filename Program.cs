@@ -68,8 +68,15 @@ namespace SuncoastHumanResources
                     var employeeName = PromptForString("What is the employee name you are looking for? ");
                     //find the employee
                     var employeeToDelete = employees.FirstOrDefault(employee => employee.Name == employeeName);
-                    //if we found the employee
-                    if (employeeToDelete != null)
+                    //if we did not find anybody
+                    if (employeeToDelete == null)
+                    {
+                        //if employee not found
+                        //show that employee does not exist.
+                        //tell the user we could not find the employee
+                        Console.WriteLine($"Sorry, we could not find {employeeName} in the list.");
+                    }
+                    else
                     {
                         //if found employee
                         //show details
@@ -81,23 +88,20 @@ namespace SuncoastHumanResources
                         {
                             //do nothing
                             //return to menu
+                            System.Console.WriteLine("Employee not deleted");
                         }
                         //if yes
-                        else
+                        else//this becomes a double negative and double negatives in languages are hard to keep track of
                         {
                             //remove the employee
                             employees.Remove(employeeToDelete);
                         }
                         Console.WriteLine($"We deleted {employeeToDelete.Name} from the list.");
                     }
-                    else
-                    {
-                        //if employee not found
-                        //show that employee does not exist.
-                        //tell the user we could not find the employee
-                        Console.WriteLine($"Sorry, we could not find {employeeName} in the list.");
-                    }
+
+
                 }
+
                 //READ - OUT OF CREATE READ UPDATE DELETE
                 //show all employee
                 else if (choice == "F")
@@ -151,7 +155,7 @@ namespace SuncoastHumanResources
                     var employee = new Employee();
 
                     //we set the properties of the employee object
-                    employee.Name = PromptForString("What is your name?: ");
+                    employee.Name = PromptForString("What is the name of the employee to enter?: ");
                     employee.Department = PromptForInteger("What is your department number?:");
                     employee.Salary = PromptForInteger("What is your salary in dollars?: ");
                     Console.WriteLine($"Hello, {employee.Name}, you are in the department number {employee.Department} you make ${employee.Salary}.");
