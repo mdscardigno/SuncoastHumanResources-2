@@ -29,7 +29,7 @@ namespace SuncoastHumanResources
         public Employee FindOneEmployee(string nameToFind)
         {
             //In one place I declared how I find employees. 
-            Employee foundEmployee = Employees.FirstOrDefault(employee => employee.Name.ToUpper().Contains(nameToFind));
+            Employee foundEmployee = Employees.FirstOrDefault(employee => employee.Name.ToUpper().Contains(nameToFind.ToUpper()));
             return foundEmployee;
         }
 
