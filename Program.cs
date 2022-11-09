@@ -6,6 +6,7 @@ namespace SuncoastHumanResources
 {
     class Program
     {
+        //User interface class could be created with these three methods
         static void DisplayGreeting()
         {
             Console.WriteLine("---------------------------------------");
@@ -35,6 +36,7 @@ namespace SuncoastHumanResources
                 return 0;
             }
         }
+
         static void Main(string[] args)
         {
             //greeting
@@ -55,7 +57,7 @@ namespace SuncoastHumanResources
                 Console.Write("What do you want to do?\n (A)dd and employee\n (S)how all the employees\n (F)ind and employee\n (D)elete\n (U)pdate\n or (Q)uit?\n ");
 
                 var choice = Console.ReadLine().ToUpper();
-
+                //CONTROL
                 switch (choice)
                 {
                     case "Q":
@@ -234,7 +236,7 @@ namespace SuncoastHumanResources
             database.AddEmployee(employee);
         }
 
-        private static void ShowAllEmployees(EmployeeDB database)
+        private static void ShowAllEmployees(EmployeeDB database)//VIEW
         {
             //READ (out of CREATE - READ - UPDATE - DELETE)
             foreach (var employee in database.GetAllEmployees())

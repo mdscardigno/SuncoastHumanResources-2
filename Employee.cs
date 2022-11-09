@@ -11,4 +11,6 @@ namespace SuncoastHumanResources
         }
 
     }
+    //Our employee is our MODEL
+    //The thing that we are keeping track of
 }

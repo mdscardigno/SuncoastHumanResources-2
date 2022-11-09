@@ -5,6 +5,7 @@ namespace SuncoastHumanResources
 {
     class EmployeeDB
     {
+        //THIS BRIDGED THE MODEL AND THE CONTROLLER PARTS OF THE MVC
         //API
         //Move our List<Employee> inside.
         //Make this class property private.
@@ -26,6 +27,7 @@ namespace SuncoastHumanResources
         }
 
         //READ
+        //We created this API that says: If you send me a name, and you call FindOneEmployee, I will FindOneEmployee and return it. 
         public Employee FindOneEmployee(string nameToFind)
         {
             //In one place I declared how I find employees. 
