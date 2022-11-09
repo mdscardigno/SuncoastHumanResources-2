@@ -56,53 +56,32 @@ namespace SuncoastHumanResources
 
                 var choice = Console.ReadLine().ToUpper();
 
-                // switch (choice)
-                // {
-
-                // }
-                //quit or exit
-                if (choice == "Q")
+                switch (choice)
                 {
-                    keepShowingTheMenu = false;
-                    System.Console.WriteLine("Thank you for using Suncoast Human Resources DB. Goodbye!");
-                }
-
-                else if (choice == "D")
-                {
-                    DeleteEmployee(database);
-                }
-
-                //READ - OUT OF CREATE READ UPDATE DELETE
-                //show all employee
-                else if (choice == "F")
-                {
-                    FindEmployee(database);
-                }
-                else if (choice == "S")
-                {
-                    ShowAllEmployees(database);//method we just extracted
-                }
-
-                else if (choice == "U")
-                {
-                    UpdateEmployee(database);
-                }
-                //while the user has's quit yet
-                else if (choice == "A")
-                {
-                    {
+                    case "Q":
+                        keepShowingTheMenu = false;
+                        System.Console.WriteLine("Thank you for using Suncoast Human Resources DB. Goodbye!");
+                        break;
+                    case "D":
+                        DeleteEmployee(database);
+                        break;
+                    case "F":
+                        FindEmployee(database);
+                        break;
+                    case "S":
+                        ShowAllEmployees(database);
+                        break;
+                    case "U":
+                        UpdateEmployee(database);
+                        break;
+                    case "A":
                         AddEmployee(database);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Sorry, that is not a valid input.");
+                        break;
+                    default:
+                        Console.WriteLine("Sorry, that is not a valid input.");
+                        break;
                 }
             }//end of while loop
-
-
-
-
         }
 
         private static void DeleteEmployee(EmployeeDB database)
