@@ -140,12 +140,7 @@ namespace SuncoastHumanResources
                 }
                 else if (choice == "S")
                 {
-                    //loop through each employee
-                    foreach (var employee in database.GetAllEmployees())
-                    {
-                        //show the details of each employee
-                        Console.WriteLine($"Name: {employee.Name} Department: {employee.Department} Salary: {employee.Salary}");
-                    }
+                    ShowAllEmployees(database);//method we just extracted
                 }
 
                 else if (choice == "U")
@@ -207,8 +202,7 @@ namespace SuncoastHumanResources
                     }
                 }
                 //while the user has's quit yet
-                else
-                                if (choice == "A")
+                else if (choice == "A")
                 {
                     {
                         //CREATE - OUT OF CREATE READ UPDATE DELETE
@@ -234,6 +228,16 @@ namespace SuncoastHumanResources
 
 
 
+        }
+
+        private static void ShowAllEmployees(EmployeeDB database)
+        {
+            //READ (out of CREATE - READ - UPDATE - DELETE)
+            foreach (var employee in database.GetAllEmployees())
+            {
+                //show the details of each employee
+                Console.WriteLine($"Name: {employee.Name} Department: {employee.Department} Salary: {employee.Salary}");
+            }
         }
     }
 }
