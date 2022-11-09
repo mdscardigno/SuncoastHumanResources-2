@@ -28,6 +28,8 @@ namespace SuncoastHumanResources
 
         //READ
         //We created this API that says: If you send me a name, and you call FindOneEmployee, I will FindOneEmployee and return it. 
+        //separating code based on area of concern is decoupling.
+        //We don't want interface code, searching code, promting code, list code and data code all in one place.
         public Employee FindOneEmployee(string nameToFind)
         {
             //In one place I declared how I find employees. 
