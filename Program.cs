@@ -45,6 +45,8 @@ namespace SuncoastHumanResources
             //list of employees
             // var employees = new List<Employee>();
             var database = new EmployeeDB();
+            //load employees from file
+            database.LoadEmployees();
 
             //Should we show the menu?
             var keepShowingTheMenu = true;
@@ -84,6 +86,7 @@ namespace SuncoastHumanResources
                         break;
                 }
             }//end of while loop
+            database.SaveEmployees();
         }
 
         private static void DeleteEmployee(EmployeeDB database)

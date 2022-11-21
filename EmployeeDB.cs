@@ -11,6 +11,17 @@ namespace SuncoastHumanResources
         //Make this class property private.
         private List<Employee> Employees { get; set; } = new List<Employee>();
 
+        //Method to load Employees (does not return anything. Just populates Employees lists.) 
+        public void LoadEmployees()
+        {
+
+
+        }
+        //Write the list Employee to a file.
+        public void SaveEmployees()
+        {
+
+        }
         //Develop public methods to perform common actions we need:
         //GetAllEmployees. FindOneEmployee. AddEmployee. UpdateEmployee. DeleteEmployee.
         //CREATE Add Employee
