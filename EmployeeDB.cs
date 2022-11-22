@@ -14,7 +14,7 @@ namespace SuncoastHumanResources
         //Make this class property private.
         private List<Employee> Employees { get; set; } = new List<Employee>();
 
-        private string FileName = "employees.csv";
+        private string FileName = "employees.csv";// I now have the file name in one place.
 
         //Method to load Employees (does not return anything. Just populates Employees lists.) 
         public void LoadEmployees()
