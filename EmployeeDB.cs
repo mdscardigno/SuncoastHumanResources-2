@@ -17,14 +17,18 @@ namespace SuncoastHumanResources
         //Method to load Employees (does not return anything. Just populates Employees lists.) 
         public void LoadEmployees()
         {
-            if (File.Exists("employees.csv"))
+            if (File.Exists("employees.csv"))//if there is a file with employees load them up
             {
                 var fileReader = new StreamReader("employees.csv");
                 var csvReader = new CsvReader(fileReader, CultureInfo.InvariantCulture);
                 Employees = csvReader.GetRecords<Employee>().ToList();
                 //in this case we do not have to configure the csvReader to ignore the header because I want the headers 
                 //there because we are going to use that header to know in what order to read the various properties.
+                //in this case we do not have to configure the csvReader to ignore the header because I want the headers 
+                //there because we are going to use that header to know in what order to read the various properties.
 
+                Employees = csvReader.GetRecords<Employee>().ToList();
+                fileReader.Close();
             }
         }
 
