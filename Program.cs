@@ -85,8 +85,8 @@ namespace SuncoastHumanResources
                         Console.WriteLine("Sorry, that is not a valid input.");
                         break;
                 }
+                database.SaveEmployees();
             }//end of while loop
-            database.SaveEmployees();
         }
 
         private static void DeleteEmployee(EmployeeDB database)
