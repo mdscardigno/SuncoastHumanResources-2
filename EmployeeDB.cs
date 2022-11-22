@@ -69,6 +69,7 @@ namespace SuncoastHumanResources
         {
             Employee foundEmployee = FindOneEmployee(employeeToDelete);
             Employees.Remove(foundEmployee);
+
         }
 
         //UPDATE
