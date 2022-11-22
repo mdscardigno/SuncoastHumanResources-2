@@ -14,12 +14,14 @@ namespace SuncoastHumanResources
         //Make this class property private.
         private List<Employee> Employees { get; set; } = new List<Employee>();
 
+        private string FileName = "employees.csv";
+
         //Method to load Employees (does not return anything. Just populates Employees lists.) 
         public void LoadEmployees()
         {
-            if (File.Exists("employees.csv"))
+            if (File.Exists(FileName))
             {
-                var fileReader = new StreamReader("employees.csv");
+                var fileReader = new StreamReader(FileName);
                 var csvReader = new CsvReader(fileReader, CultureInfo.InvariantCulture);
                 //replaces our list of employees with the list of employees that we read from the csv file.
                 Employees = csvReader.GetRecords<Employee>().ToList();
@@ -33,7 +35,7 @@ namespace SuncoastHumanResources
         //Write the list Employee to a file.
         public void SaveEmployees()
         {
-            var fileWriter = new StreamWriter("employees.csv");
+            var fileWriter = new StreamWriter(FileName);
             var csvWriter = new CsvWriter(fileWriter, CultureInfo.InvariantCulture);
             csvWriter.WriteRecords(Employees);//csv is smart enough to know that we are writing a list of employees objects
             fileWriter.Close();
