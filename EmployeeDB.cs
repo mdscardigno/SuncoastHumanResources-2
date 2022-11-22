@@ -12,9 +12,10 @@ namespace SuncoastHumanResources
         //API
         //Move our List<Employee> inside.
         //Make this class property private.
-        private List<Employee> Employees { get; set; } = new List<Employee>();
+        private List<Employee> Employees { get; set; } = new List<Employee>();//this kind of data will not be static if we were creating more than one EmployeeDB.
 
-        private string FileName = "employees.csv";// I now have the file name in one place.
+        //in this code bellow we are likely to see static if we are creating more than one EmployeeDB
+        private string FileName = "employees.csv";// I now have the file name in one place. Share common information.
 
         //Method to load Employees (does not return anything. Just populates Employees lists.) 
         public void LoadEmployees()
